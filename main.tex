@@ -59,7 +59,9 @@
     l'enceinte de notre campus. Le projet Cassiopée s'est terminé en Juin 2017,
     avant que je ne reprenne la suite du projet en Septembre, ce projet étant pleinement
     compatible avec le domaine d'expertise de ma voie d'approfondissement en
-    Systèmes Embarqués.}
+    Systèmes Embarqués. Cette plate forme robotisée est une demande du département
+    Direction des Formations de Télécom SudParis, et plus particulièrement de
+    Monsieur Claude Villard, directeur des formations de l'école.}
 
     \section{Bilan des projets Cassiopée}
 
@@ -147,43 +149,52 @@
 
   \chapter{Déroulement du PFE}
 
+    \section{Intégration des capteurs}
+
+        \subsection{Description des capteurs}
+
+        \subsection{Mise en application}
+
+
+
+
     \section{Interaction avec les utilisateurs}
 
-    {Afin de rendre les communication avec le robot les plus naturelles possible
-    pour les utilisateurs, nous avons choisi d'utiliser de la reconnaissance vocale.
-    Le fonctionnement du système de reconnaissance vocale est organisé selon
-    un modèle client - serveur :}
+      {Afin de rendre les communication avec le robot les plus naturelles possible
+      pour les utilisateurs, nous avons choisi d'utiliser de la reconnaissance vocale.
+      Le fonctionnement du système de reconnaissance vocale est organisé selon
+      un modèle client - serveur :}
 
-    \subsection{Le client}
-    {Le client que nous avons développé est une application Android. Ce choix n'est
-    pas arbitraire, il permet en effet d'offrir des fonctionnalités particulièrement
-    intéressantes :}
+      \subsection{Le client}
+      {Le client que nous avons développé est une application Android. Ce choix n'est
+      pas arbitraire, il permet en effet d'offrir des fonctionnalités particulièrement
+      intéressantes :}
 
-    \subsubsection{La simplicité de l'interaction}
-    {L'utilisation d'une tablette, qu'elle soit accompagnée ou non de reconnaissance
-    vocale, était déjà prévue au début du projet Hermes. En effet, elle permet
-    d'obtenir une forme d'interaction simple pour l'utilisateur grâce à son écran tactile.
-    Celui ci devait permettre notamment de montrer une carte du lieu, ainsi qu'un écran
-    pour rechercher le bureau d'une personne sur le campus simplement à partir de son
-    nom.}
+        \subsubsection{La simplicité de l'interaction}
+        {L'utilisation d'une tablette, qu'elle soit accompagnée ou non de reconnaissance
+        vocale, était déjà prévue au début du projet Hermes. En effet, elle permet
+        d'obtenir une forme d'interaction simple pour l'utilisateur grâce à son écran tactile.
+        Celui ci devait permettre notamment de montrer une carte du lieu, ainsi qu'un écran
+        pour rechercher le bureau d'une personne sur le campus simplement à partir de son
+        nom.}
 
-    \subsubsection{L'API de Google}
-    {Nous avons choisi d'utiliser une tablette sous Android, pour la simplicité de
-    développement que cela implique, mais aussi pour avoir l'accès à l'API de reconnaissance
-    vocale de Google. Cette API est composée de deux éléments complémentaires :}
-    \begin{itemize}
-      \item Le STT (Speech to text) : c'est l'outil capable de traduire le fichier
-      audio contenant la requête vocale de l'utilisateur en une requête sous forme de
-      chaîne de caractères.
-      \item Le TTS (Text To Speech) : il s'agit de l'outil faisant le travail inverse.
-      À partir d'une chaîne de caractères, le TTS génère un fichier audio contenant une
-      voix synthétisée lisant la chaîne de caractères.
-    \end{itemize}
+        \subsubsection{L'API de Google}
+        {Nous avons choisi d'utiliser une tablette sous Android, pour la simplicité de
+        développement que cela implique, mais aussi pour avoir l'accès à l'API de reconnaissance
+        vocale de Google. Cette API est composée de deux éléments complémentaires :}
+        \begin{itemize}
+          \item Le STT (Speech to text) : c'est l'outil capable de traduire le fichier
+          audio contenant la requête vocale de l'utilisateur en une requête sous forme de
+          chaîne de caractères.
+          \item Le TTS (Text To Speech) : il s'agit de l'outil faisant le travail inverse.
+          À partir d'une chaîne de caractères, le TTS génère un fichier audio contenant une
+          voix synthétisée lisant la chaîne de caractères.
+        \end{itemize}
 
-    {L'avantage pour nous est que Google fournit cette API dans tous les appareils
-    Android, et elle ne nécessite même pas de connexion Internet (ce qui est intéressant
-    pour nous puisqu'il fallait que le mode d'interaction avec le robot ne soit pas
-    tributaire de la présence d'une connexion wifi ou non).}
+        {L'avantage pour nous est que Google fournit cette API dans tous les appareils
+        Android, et qu'elle peut être utilisée sans connexion Internet (ce qui est intéressant
+        pour nous puisqu'il fallait que le mode d'interaction avec le robot ne soit pas
+        tributaire de la présence d'une connexion wifi ou non).}
 
 
 
