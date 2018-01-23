@@ -1,4 +1,5 @@
-\documentclass[a4paper,10pt]{report}
+\documentclass{report}
+\usepackage[14pt]{extsizes}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{textcomp}
@@ -195,6 +196,100 @@
         Android, et qu'elle peut être utilisée sans connexion Internet (ce qui est intéressant
         pour nous puisqu'il fallait que le mode d'interaction avec le robot ne soit pas
         tributaire de la présence d'une connexion wifi ou non).}
+
+    \section{Le serveur}
+
+    \subsection{Le choix de l'architecture matérielle}
+
+    {Notre architecture avait pour objectif de tester les capacités d'un
+    micro-ordinateur embarqué, afin de savoir si il était possible de gérer
+    tous les éléments de base d'un robot depuis une unique carte. En effet,
+    la plupart des architectures de robots que nous avions expérimenté pour l'instant
+    (notamment au club de robotique de l'école) étaient constituées d'une carte
+    dite "Bas niveau" et d'une carte dite "Haut Niveau". La première, souvent une carte
+    de type Arduino, STM32, ou encore Teensy, avait pour rôle de gérer les
+    problématiques de pilotage des moteurs et servomoteurs, tandis que la seconde
+    permettait de gérer les problématiques de l'environnement du robot (grâce à l'interprétation
+    des valeurs des capteurs) ainsi que la recherche de chemin (algorithme de Path Finding),
+    mais aussi la communication avec l'utilisateur. Cette dernière, plus puissante,
+    était souvent une Raspberry Pi. Cela nous obligeait donc à avoir
+    un système de communication entre ces deux cartes, qu'il s'agisse d'une liaison série
+    ou d'une connexion ethernet, transportant un protocole de communication simple réalisé
+    par nos soins. Cependant, nous avions constaté des faiblesses qui pouvaient s'avérer
+    critiques lorsque des déconnexions apparaissaient. Pour cette raison, nous voulions
+    tester une autre forme d'architecture, en utilisant une seule et unique carte pour
+    les applications haut et bas niveau.}
+
+    \subsubsection{Fonctionnalités indispensables}
+
+    {Afin de choisir l'ordinateur utilisé, nous avions deux contraintes principales :
+    tout d'abord, la carte devait être suffisamment puissante pour permettre
+    d'accueuillir des programmes "haut niveau" tels qu'un algorithme de recherche de chemin
+    (relativement coûteux en terme de puissance de calcul) ou encore différents
+    serveurs, comme par exemple notre serveur python en charge du traitement des
+    phrases de la reconnaissance vocale. Tout cela fonctionnant en simultané avec
+    le programme responsable de l'asservissement du robot, lui aussi potentiellement
+    gourmand en ressources de calcul, de par la fréquence d'asservissement qui se doit
+    d'être suffisamment élevée pour permettre de bons déplacements de la plate forme.
+    Aussi, cette première contrainte nous obligeait à utiliser un système d'exploitation
+    permettant d'installer et d'executer des programmes complexes et divers. C'est pour
+    cela (et parce que nous le connaissions suffisamment) que nous avions choisi
+    d'utiliser Linux.}
+    {Puis, il fallait que la carte électronique possède les fonctionnalités
+    hardwares indispensables pour pouvoir l'interfacer directement avec notre matériel,
+    et en particulier avec les encodeurs incrémentaux permettant de mesurer la
+    vitesse et la distance parcourue par le robot. En effet, ces systèmes ont pour
+    sortie un signal dont nous devons pouvoir déduire le déplacement du robot en
+    comptant simplement des fronts montants. Hors, ces fronts montants
+    doivent êtres dénombrés grâce à des interruptions, il nous fallait donc choisir
+    une carte embarquée disposant de gestion d'interruptions. Après quelques recherches,
+    nous avions choisi d'utiliser une carte de type BeagleBone Black.}
+
+    \subsubsection{La BeagleBone Black}
+
+    {La carte Beaglebone black est un micro ordinateur destiné à être embarqué.
+    Elle permet en théorie d'utiliser toutes les fonctionnalités requises par notre
+    cahier des charges simultanément. Le processeur utilisé est un ARM Cortex A8
+    cadencé à 1GHz, auquel on associe 512 Mo cd mémoire RAM DDR3, ce qui lui apporte
+    des capacités de calcul supérieures à une Raspberry Pi. De plus, cette carte
+    est plus adaptée à être utilisée dans des projets embarqués : elle possède
+    beaucoup plus de GPIO, dont par exemple 3 bus I2C différents, contre un seul
+    pour la Raspberry Pi 3. Dans la configuration actuelle du projet, un seul bus I2C
+    peut suffir, cependant nous avions pensé à différentes améliorations qui pourraient
+    demander des bus supplémentaires, ou davantage de GPIO.
+    Enfin, la différence majeure avec une Raspberry Pi est que la Beaglebone
+    possède des PRU (Programmable Real-Time Unit). Il s'agit en réalité de petits
+    micro-controlleurs 32 bits indépendants situés dans la puce processeur de la carte,
+    et qui permettent de faire cohabiter des fonctionnalités nécessitant du temps réel et un
+    système d'exploitation qui ne l'est pas, dans notre cas, Linux. C'est cette différence
+    fondamentale qui fait de la BeagleBone Black une carte bien plus adaptée à jouer
+    le rôle d'ordinateur central unique pour un système robotisé.}
+
+\begin{centering}
+  \includegraphics[scale=0.8]{img/black_hardware_details.png}
+\end{centering}
+
+    \section{L'architecture logicielle}
+
+    \subsection{Le projet Yocto}
+    {Comme nous souhaitions utiliser un système d'exploitation Linux, nous devions
+    choisir quelle distribution de cet OS nous allions utiliser. Nous avions trois
+    possibilités :}
+    \begin{itemize}
+      \item Utiliser un OS
+    \end{itemize}
+
+
+
+
+    {Les différentes fonctionnalités assurées par le serveur (c'est-à-dire la
+    Beaglebone Black) sont réparties dans différents services. Dans le cadre de la
+    nouvelle orientation du projet pour ce projet de fin d'études, à savoir l'utilisation
+    du robot dans son mode "guidage" avec la tablette tactile comme interface avec
+    l'utilisateur, il y a principalement deux programmes utilisés.}
+
+
+
 
 
 
