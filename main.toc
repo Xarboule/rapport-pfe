@@ -9,13 +9,16 @@
 \contentsline {subsubsection}{La Tablette Android}{5}{section*.5}
 \contentsline {section}{\numberline {1.4}Objectif du Projet de fin d'\IeC {\'e}tudes}{5}{section.1.4}
 \contentsline {chapter}{\numberline {2}D\IeC {\'e}roulement du PFE}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}Interaction avec les utilisateurs}{7}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Le client}{7}{subsection.2.1.1}
-\contentsline {subsubsection}{La simplicit\IeC {\'e} de l'interaction}{7}{section*.6}
+\contentsline {section}{\numberline {2.1}Int\IeC {\'e}gration des capteurs}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Description des capteurs}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Mise en application}{7}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Interaction avec les utilisateurs}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Le client}{7}{subsection.2.2.1}
+\contentsline {subsubsection}{La simplicit\IeC {\'e} de l'interaction}{8}{section*.6}
 \contentsline {subsubsection}{L'API de Google}{8}{section*.7}
-\contentsline {section}{\numberline {2.2}Le serveur}{8}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Le choix de l'architecture mat\IeC {\'e}rielle}{8}{subsection.2.2.1}
+\contentsline {section}{\numberline {2.3}Le serveur}{9}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Le choix de l'architecture mat\IeC {\'e}rielle}{9}{subsection.2.3.1}
 \contentsline {subsubsection}{Fonctionnalit\IeC {\'e}s indispensables}{9}{section*.8}
 \contentsline {subsubsection}{La BeagleBone Black}{10}{section*.9}
-\contentsline {section}{\numberline {2.3}L'architecture logicielle}{11}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Le projet Yocto}{11}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}L'architecture logicielle}{12}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Le projet Yocto}{12}{subsection.2.4.1}
