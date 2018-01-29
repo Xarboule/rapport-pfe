@@ -152,7 +152,25 @@
 
     \section{Intégration des capteurs}
 
+    {Une des fonctionnalités prévues initialement dans le cahier des charges qui n'avait
+    pas encore été implémentée lors du projet Cassiopée était la gestion des capteurs.
+    Nous avions prévu de placer des capteurs ultrason à des endroits stratégiques du
+    chassis du robot. En effet, la plateforme est sensée pouvoir se déplacer
+    dans un environnement où des personnes peuvent gêner son mouvement. Hors, sans
+    autre forme d'information sur son environnement, le robot ne peut pas prévoir
+    là où se trouveront d'éventuels obstacles au moment où il planifie son trajet d'un
+    point A à un point B. Il faut donc au minimum lui ajouter un "dispositif d'urgence",
+    capable d'interrompre un déplacement si celui ci est perturbé par un obstacle
+    inattendu.}
+
         \subsection{Description des capteurs}
+        {Afin de détecter les obstacles das l'environnement proche du robot, nous
+        avions choisi d'utiliser des capteurs à ultrason de type SRF02.}
+
+        \begin{center}
+          \includegraphics{img/srf02.png}
+        \end{center}
+
 
         \subsection{Mise en application}
 
@@ -265,9 +283,9 @@
     fondamentale qui fait de la BeagleBone Black une carte bien plus adaptée à jouer
     le rôle d'ordinateur central unique pour un système robotisé.}
 
-\begin{centering}
+\begin{center}
   \includegraphics[scale=0.8]{img/black_hardware_details.png}
-\end{centering}
+\end{center}
 
     \section{L'architecture logicielle}
 
@@ -281,7 +299,7 @@
       \item Utiliser un outil de génération de distribution Linux personnalisée
     \end{itemize}
 
-    
+
 
 
 
